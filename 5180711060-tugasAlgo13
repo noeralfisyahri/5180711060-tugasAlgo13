@@ -1,0 +1,98 @@
+#include <iostream>
+#include <iomanip>
+ using namespace::std;
+
+ main (){
+     string nomor[5]={"A001","A002","A003","A007","A008"};
+     string nama [5]={"Bayu","Irvan","Susiati","Diana","Roni"};
+     string barang[20];
+     string sear, namapel;
+     char member;
+     int index, jumlahbarang, z, Nilai[20];
+     bool status=false;
+     int j, k, jumlah, temp;
+     float hargaakhir, diskon;
+
+cout<<"MEMBER Y/T : "; cin>>member;
+switch (member) {
+case 'y' :
+case 'Y' : cout<<"CARI NOMOR IDENTITAS MEMBER : ";cin>>sear;
+for (int i=0;i<5;i++){
+    if(sear==nomor[i]){
+        status=true;
+        nama[i];
+        if(status)
+    {cout<<"NAMA MEMBER     : "<<nama[i];
+     cout<<"\nNOMOR IDENTITAS : "<<nomor[i];}}}
+cout<<"\n\nBERAPA MACAM BARANG YANG DIBELI : "; cin>>jumlahbarang;
+
+ for(z=0; z<jumlahbarang; z++)
+ {
+  cout<<"NAMA BARANG : ";
+  cin>>barang[z];
+  cout<<"HARGA BARANG : Rp. ";
+  cin>>Nilai[z];
+ }
+
+ for(z=1; z<jumlahbarang; z++)
+ {
+  temp = Nilai[z];
+  j=z-1;
+  while((temp <= Nilai [j]) && (j>=1)) {Nilai[j+1] = Nilai[j];j--;}
+
+  if (temp >= Nilai[j]) Nilai [j+1] = temp;
+
+  else{Nilai[j+1]=Nilai[j];Nilai[j]= temp;}
+  cout<<endl;
+ }
+
+for(z=0; z<jumlahbarang; z++)
+{cout<<endl<<"               Rp. ";cout<<setw(3)<<Nilai[z];}
+cout<<"\nTOTAL        _____________________ +";
+  jumlah=0;
+  for(z=0; z<jumlahbarang; z++)
+  {jumlah=jumlah+Nilai[z];}
+  cout<<endl;
+  diskon=(jumlah*5/100); hargaakhir=jumlah-diskon;
+cout<<"               Rp. "<<jumlah;cout<<endl;
+cout<<"               Rp. "<<diskon;
+cout<<"\nTOTAL+DISKON  _____________________ -";cout<<endl;
+cout<<"               Rp. "<<hargaakhir;break;
+
+case 't' :
+case 'T' : cout<<"NAMA PELANGGAN : "; cin>>namapel;
+cout<<"\n\nBERAPA MACAM BARANG YANG DIBELI : "; cin>>jumlahbarang;
+
+ for(z=0; z<jumlahbarang; z++)
+ {
+  cout<<"NAMA BARANG : ";
+  cin>>barang[z];
+  cout<<"HARGA BARANG : Rp. ";
+  cin>>Nilai[z];
+ }
+
+ for(z=1; z<jumlahbarang; z++)
+ {
+  temp = Nilai[z];
+  j=z-1;
+  while((temp <= Nilai [j]) && (j>=1)) {Nilai[j+1] = Nilai[j];j--;}
+
+  if (temp >= Nilai[j]) Nilai [j+1] = temp;
+
+  else{Nilai[j+1]=Nilai[j];Nilai[j]= temp;}
+  cout<<endl;
+ }
+
+ for(z=0; z<jumlahbarang; z++)
+ {cout<<endl<<"        Rp. ";cout<<setw(3)<<Nilai[z];}
+ cout<<"\nTOTAL  _____________________ +";
+jumlah=0;
+  for(z=0; z<jumlahbarang; z++)
+  {jumlah=jumlah+Nilai[z];}
+  cout<<endl;
+cout<<"       Rp. "<<jumlah;break;
+}
+
+
+ return 0;
+ }
